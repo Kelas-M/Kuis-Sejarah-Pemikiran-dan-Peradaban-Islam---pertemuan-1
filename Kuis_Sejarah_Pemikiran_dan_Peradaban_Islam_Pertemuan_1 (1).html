@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Kuis akademik Kelas M: Sejarah Pemikiran dan Peradaban Islam, Pertemuan 1. Berisi 20 soal pilihan ganda, nilai otomatis, dan pembahasan.">
+<meta name="theme-color" content="#1d4ed8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kuis Sejarah Pemikiran dan Peradaban Islam - Pertemuan 1">
+<meta property="og:description" content="Evaluasi pembelajaran Kelas M · 20 soal pilihan ganda · Nilai dan pembahasan otomatis.">
+<meta property="og:site_name" content="Kelas M — Pascasarjana PJJ PAI UIN SSC Cirebon">
+<title>Kuis Sejarah Pemikiran dan Peradaban Islam - Pertemuan 1</title>
+<style>
+:root{color-scheme:light;--bg:#f1f5f9;--panel:#ffffff;--card:#f8fafc;--line:#dbe3ee;--accent:#1d4ed8;--blue:#2563eb;--text:#172033;--muted:#526078}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);padding:22px}
+main{max-width:850px;margin:0 auto;background:var(--panel);border:1px solid var(--line);border-top:5px solid var(--accent);border-radius:16px;padding:clamp(20px,4vw,34px);box-shadow:0 10px 30px #0f172a0d}
+header{text-align:center;margin-bottom:24px}h1{font-size:clamp(1.5rem,4vw,2.1rem);line-height:1.2;color:var(--accent);margin:0 0 10px}header p{margin:4px;color:var(--muted)}
+.namebox{margin:24px 0}.namebox label{display:block;font-weight:700;margin-bottom:8px}input{width:100%;padding:13px 14px;border:2px solid var(--line);border-radius:9px;background:#fff;color:var(--text);font:inherit}
+button{cursor:pointer;border:0;border-radius:9px;padding:13px 18px;font:700 1rem inherit;font-weight:700}button:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}.primary{background:var(--accent);color:#fff;width:100%;margin-top:12px}.secondary{background:#e2e8f0;color:#172033}.stats{display:flex;justify-content:space-between;gap:12px;color:var(--blue);font-weight:700;margin:20px 0}.question{font-size:1.16rem;font-weight:650;margin:20px 0}.option{display:block;width:100%;text-align:left;margin:10px 0;background:var(--card);color:var(--text);border:2px solid var(--line);font-weight:500;line-height:1.4}.option:hover:not(:disabled){border-color:var(--blue);background:#eff6ff}.option:disabled{cursor:default;opacity:1}.option.correct{background:#14532d;border-color:#22c55e}.option.wrong{background:#7f1d1d;border-color:#f87171}.feedback{padding:14px;border-radius:10px;margin:16px 0;background:#f1f5f9}.feedback.good{border-left:4px solid #22c55e}.feedback.bad{border-left:4px solid #f87171}.hidden{display:none}.progress{height:8px;background:#0f172a;border-radius:9px;overflow:hidden}.progress span{display:block;height:100%;background:var(--accent);width:0}.small{font-size:.9rem;color:var(--muted)}.result{text-align:center}.score{font-size:2.5rem;color:var(--accent);font-weight:800}.review{text-align:left;background:#f8fafc;border:1px solid var(--line);padding:14px;border-radius:10px;margin:12px 0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.actions button{flex:1;min-width:180px}
+@media(max-width:520px){body{padding:10px}.stats{font-size:.92rem}.question{font-size:1.05rem}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p style="display:inline-block;background:#eff6ff;color:#1d4ed8;padding:6px 12px;border-radius:999px;font-weight:700;letter-spacing:.04em">KELAS M · EVALUASI PEMBELAJARAN</p>
+<h1>Kuis Sejarah Pemikiran dan Peradaban Islam - Pertemuan 1</h1>
+<p><strong>Pascasarjana PJJ PAI · UIN SSC Cirebon</strong></p>
+<p>Pertemuan 1: Ruang Lingkup dan Pendekatan</p>
+<p>20 soal pilihan ganda · Berdasarkan bahan perkuliahan</p><p class="small">Kuis akademik mandiri • Tidak meminta kata sandi atau data akun Google</p>
+</header>
+<section id="start">
+<div class="namebox"><label for="student">Nama lengkap mahasiswa</label><input id="student" autocomplete="name" placeholder="Masukkan nama lengkap"></div>
+<button class="primary" id="startBtn">Mulai Kuis</button>
+<p class="small">Masukkan nama untuk identitas hasil kuis. Pilih satu jawaban pada setiap soal. Kuis ini berjalan di browser Anda dan tidak meminta kata sandi atau akses akun.</p>
+</section>
+<section id="quiz" class="hidden">
+<div class="stats"><span id="count">Soal 1/20</span><span id="scoreNow">Benar: 0</span></div>
+<div class="progress"><span id="bar"></span></div>
+<div id="qText" class="question"></div>
+<div id="opts"></div>
+<div id="feedback" class="feedback hidden" aria-live="polite"></div>
+<button id="nextBtn" class="primary hidden">Soal Berikutnya</button>
+</section>
+<section id="result" class="hidden result">
+<h2>Kuis Selesai!</h2><p id="greet"></p><div id="scoreBig" class="score"></div>
+<p id="scoreLine"></p><p id="remark"></p>
+<div class="actions"><button id="reviewBtn" class="secondary">Lihat Pembahasan</button><button id="retryBtn" class="primary">Ulangi Kuis</button></div>
+<div id="reviews" class="hidden"></div>
+</section>
+</main>
+<script>
+const BANK = [{"q": "Menurut materi Pertemuan 1, sejarah pemikiran dan peradaban Islam pada tingkat magister terutama mengkaji ...", "options": ["Daftar nama tokoh, dinasti, kota, dan karya intelektual", "Proses manusia Muslim membangun, memproduksi, mentransmisikan, menggunakan, mempertahankan, dan memperdebatkan pengetahuan dalam konteks sejarah", "Urutan pergantian khalifah tanpa melihat masyarakat", "Perkembangan filsafat saja"], "a": 1, "why": "Materi menekankan produksi dan sirkulasi pengetahuan dalam konteks sejarah, bukan sekadar hafalan tokoh atau kronologi."}, {"q": "Mengapa sejarah pemikiran Islam tidak cukup dipelajari melalui biografi tokoh?", "options": ["Karena biografi tidak pernah menggunakan sumber tertulis", "Karena tokoh tidak memiliki hubungan dengan masyarakat", "Karena gagasan muncul dalam konteks sosial, guru, teks, institusi, dan persoalan intelektual-politik tertentu", "Karena karya tokoh tidak dapat diwariskan"], "a": 2, "why": "Tokoh tidak muncul dalam ruang kosong; gagasannya perlu dipahami melalui konteks dan jaringan yang membentuknya."}, {"q": "Manakah pernyataan yang paling sesuai dengan materi tentang cakupan sejarah pemikiran Islam?", "options": ["Hanya membahas filsafat dan kalam", "Identik sepenuhnya dengan sejarah filsafat Islam", "Mencakup fikih, tafsir, hadis, filsafat, tasawuf, politik, etika, pendidikan, bahasa, ilmu, dan kebudayaan", "Hanya membahas pemikiran para khalifah"], "a": 2, "why": "Filsafat merupakan salah satu bagian dari spektrum luas pemikiran Islam."}, {"q": "Dalam materi, al-Ghazali dicontohkan terutama sebagai ...", "options": ["Sejarawan dan pemikir sosial", "Teolog dan sufi", "Filsuf dan dokter", "Filsuf dan ahli hukum"], "a": 1, "why": "Materi memberi contoh al-Ghazali sebagai teolog dan sufi."}, {"q": "Konsep Islamicate yang dikemukakan Marshall Hodgson membantu membedakan ...", "options": ["Sejarah politik dan sejarah ekonomi secara mutlak", "Islam sebagai agama dan kompleks kebudayaan historis yang dipengaruhi Islam", "Bahasa Arab dan seluruh bahasa lainnya", "Ilmu agama dan ilmu umum menurut kurikulum modern"], "a": 1, "why": "Islamicate digunakan untuk memahami kompleks kebudayaan yang berkembang dalam lingkungan historis yang dipengaruhi Islam."}, {"q": "Apa implikasi pandangan bahwa peradaban merupakan proses sosial, bukan sekadar daftar pencapaian elite?", "options": ["Sejarah hanya perlu mencatat khalifah dan istana", "Kelompok masyarakat biasa tidak relevan untuk dikaji", "Pedagang, perempuan, penyalin, komunitas lokal, dan kelompok lain juga perlu diperhatikan", "Peradaban hanya dapat diukur melalui bangunan monumental"], "a": 2, "why": "Materi memperluas perhatian kepada beragam aktor dan kehidupan sosial yang memungkinkan peradaban terbentuk."}, {"q": "Urutan proses yang menggambarkan bagaimana gagasan menjadi bagian dari tradisi keilmuan adalah ...", "options": ["Aktor → bahasa → teks → institusi → jaringan → transmisi → penerimaan", "Teks → khalifah → perang → wilayah → dinasti", "Institusi → penghapusan teks → isolasi → penerimaan", "Jaringan → penolakan seluruh gagasan → tradisi"], "a": 0, "why": "Materi menyebut alur aktor, bahasa, teks, institusi, jaringan, transmisi, dan penerimaan."}, {"q": "Mengapa masjid, halaqah, kuttab, perpustakaan, madrasah, pesantren, dan universitas penting dalam sejarah pemikiran?", "options": ["Karena hanya berfungsi sebagai bangunan fisik", "Karena merupakan institusi produksi dan reproduksi pengetahuan", "Karena menggantikan seluruh peran guru dan murid", "Karena tidak berhubungan dengan otoritas"], "a": 1, "why": "Institusi pendidikan memungkinkan pengetahuan diproduksi dan diwariskan antargenerasi."}, {"q": "Manakah yang termasuk pertanyaan kritis terhadap unit analisis teks?", "options": ["Apakah teks itu selalu benar tanpa perlu diperiksa?", "Siapa penulisnya, kapan ditulis, untuk siapa, dalam konteks apa, dan apa tujuannya?", "Berapa harga kertas yang digunakan saja?", "Apakah teks tersebut populer pada masa kini?"], "a": 1, "why": "Materi menekankan pemeriksaan penulis, waktu, penerima, konteks, dan tujuan penulisan."}, {"q": "Dalam materi, istilah presentism merujuk pada ...", "options": ["Membaca masa lalu semata-mata menggunakan kategori dan nilai masa kini", "Membandingkan berbagai manuskrip dari masa yang sama", "Menggunakan konteks sosial dalam membaca sumber", "Mengakui bahwa sumber memiliki keterbatasan"], "a": 0, "why": "Presentism adalah kecenderungan menilai atau membaca masa lalu hanya dengan kategori dan nilai masa kini."}, {"q": "Manakah contoh aktor sejarah menurut materi yang melampaui tokoh besar?", "options": ["Hanya khalifah dan panglima perang", "Ulama, guru, murid, pedagang, penerjemah, penyalin manuskrip, perempuan, dan komunitas non-Muslim", "Hanya penulis kitab yang terkenal", "Hanya pejabat administrasi pusat"], "a": 1, "why": "Unit analisis aktor mencakup berbagai kelompok yang berperan dalam produksi dan penyebaran pengetahuan."}, {"q": "Apa fungsi unit analisis institusi dalam kajian sejarah pemikiran Islam?", "options": ["Menentukan bagaimana pengetahuan diproduksi, diwariskan, dan siapa yang memiliki akses", "Membuktikan bahwa semua pengetahuan hanya berasal dari istana", "Menghilangkan peran aktor dalam sejarah", "Mengganti kritik sumber dengan daftar bangunan"], "a": 0, "why": "Institusi menyediakan ruang sosial dan ikut menentukan produksi, pewarisan, serta akses terhadap pengetahuan."}, {"q": "Pengetahuan bergerak melintasi tempat melalui berbagai jaringan. Contoh yang disebutkan dalam materi adalah ...", "options": ["Perjalanan ulama, perdagangan, haji, surat-menyurat, manuskrip, sanad, murid, dan penerjemahan", "Hanya penaklukan militer", "Hanya keputusan khalifah", "Hanya perpindahan penduduk tanpa pertukaran gagasan"], "a": 0, "why": "Materi menguraikan beragam jalur sirkulasi pengetahuan, termasuk perjalanan, perdagangan, haji, manuskrip, dan sanad."}, {"q": "Apa perbedaan fokus sejarah intelektual dan sejarah pengetahuan sebagaimana dijelaskan dalam materi?", "options": ["Sejarah pengetahuan hanya membahas tokoh, sedangkan sejarah intelektual hanya membahas bangunan", "Sejarah intelektual memberi perhatian pada gagasan dan pemikir; sejarah pengetahuan juga menelaah bagaimana pengetahuan diakui, diklasifikasikan, diajarkan, disimpan, dan dilegitimasi", "Keduanya tidak memiliki perbedaan fokus sama sekali", "Sejarah pengetahuan hanya membahas teknologi digital"], "a": 1, "why": "Sejarah pengetahuan menambahkan pertanyaan tentang bagaimana sesuatu diakui sebagai pengetahuan dan memperoleh legitimasi."}, {"q": "Mengapa kategori seperti ‘ilm, fiqh, hikmah, dan ma‘rifah tidak boleh langsung dimasukkan ke dalam pembagian modern ‘ilmu agama’ dan ‘ilmu umum’?", "options": ["Karena semua istilah tersebut memiliki arti yang sama", "Karena kategori pengetahuan memiliki sejarah dan perlu direkonstruksi menurut cara masyarakat pada zamannya mengklasifikasikannya", "Karena istilah tersebut tidak pernah digunakan dalam sejarah Islam", "Karena pembagian ilmu tidak pernah berubah"], "a": 1, "why": "Materi mengingatkan bahwa kategori pengetahuan memiliki sejarah; sejarawan perlu merekonstruksi klasifikasi pada zamannya."}, {"q": "Menurut perspektif sejarah sosial yang dibahas dalam materi, kajian peradaban sebaiknya memperhatikan ...", "options": ["Hanya lembaga politik dan elite", "Kebudayaan, praktik sosial, representasi, kehidupan sehari-hari, dan pengalaman masyarakat", "Hanya perang dan pergantian dinasti", "Hanya karya monumental tanpa masyarakat pendukung"], "a": 1, "why": "Sejarah sosial memperluas perhatian dari elite dan institusi politik menuju praktik dan pengalaman masyarakat."}, {"q": "Enam pertanyaan untuk membaca sumber sejarah secara kritis dalam materi adalah ...", "options": ["Apa, berapa, berapa lama, berapa biaya, siapa pembeli, dan siapa penjual", "Siapa, kapan, di mana, untuk siapa, untuk apa, dan bagaimana", "Siapa menang, siapa kalah, siapa berkuasa, siapa turun, siapa menyerang, siapa bertahan", "Apa judulnya, berapa halaman, siapa penerbit, apa warnanya, berapa harga, dan di mana dijual"], "a": 1, "why": "Materi merumuskan enam pertanyaan: siapa, kapan, di mana, untuk siapa, untuk apa, dan bagaimana."}, {"q": "Apa yang dimaksud dengan positivisme naif dalam pembacaan sejarah menurut materi?", "options": ["Menganggap sumber sebagai cermin langsung masa lalu", "Menganggap semua pengetahuan sejarah tidak mungkin diverifikasi", "Menggunakan kritik sumber dan konteks secara seimbang", "Membandingkan sumber yang berbeda untuk memeriksa bukti"], "a": 0, "why": "Positivisme naif memperlakukan sumber seolah-olah mencerminkan masa lalu secara langsung tanpa memperhatikan pembentukannya."}, {"q": "Materi menempatkan sejarawan di antara dua ekstrem, yaitu ...", "options": ["Sejarah politik dan sejarah sosial", "Tradisi lisan dan tradisi tertulis", "Positivisme naif dan relativisme total", "Filsafat dan kedokteran"], "a": 2, "why": "Sejarawan perlu membangun interpretasi berbasis bukti, kritik sumber, konteks, argumentasi, dan verifikasi, tanpa jatuh pada dua ekstrem tersebut."}, {"q": "Apa relevansi pendekatan sejarah pemikiran Islam bagi mahasiswa S2 PAI di era digital dan AI?", "options": ["Menghentikan kajian otoritas pengetahuan karena teknologi sudah menentukan kebenaran", "Menghafal perkembangan teknologi tanpa mengaitkannya dengan pendidikan", "Mengkaji perubahan otoritas pengetahuan, termasuk siapa yang menentukan kurikulum, informasi yang dilihat, dan jawaban yang diterima sebagai pengetahuan", "Menganggap otoritas pengetahuan selalu tetap dan tidak berubah"], "a": 2, "why": "Materi menghubungkan sejarah otoritas pengetahuan dari wahyu, Nabi, sahabat, ulama, lembaga pendidikan, hingga media digital dan AI."}];
+let questions=[],idx=0,correct=0,answered=false,name="",responses=[];
+const $=id=>document.getElementById(id);
+function shuffle(arr){for(let i=arr.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
+function startQuiz(){
+ name=$('student').value.trim();if(!name){alert('Silakan masukkan nama lengkap terlebih dahulu.');$('student').focus();return}
+ questions=shuffle(BANK.map(item=>{let opts=item.options.map((text,i)=>({text,correct:i===item.a}));return {...item,shuffled:shuffle(opts)}}));
+ idx=0;correct=0;answered=false;responses=[];
+ $('start').classList.add('hidden');$('result').classList.add('hidden');$('quiz').classList.remove('hidden');renderQuestion()
+}
+function renderQuestion(){
+ answered=false;const q=questions[idx];
+ $('count').textContent=`Soal ${idx+1}/${questions.length}`;$('scoreNow').textContent=`Benar: ${correct}`;
+ $('bar').style.width=`${idx/questions.length*100}%`;$('qText').textContent=q.q;$('opts').innerHTML='';$('feedback').className='feedback hidden';$('nextBtn').classList.add('hidden');
+ q.shuffled.forEach((o,i)=>{const b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+o.text;b.onclick=()=>choose(i);$('opts').appendChild(b)})
+}
+function choose(i){
+ if(answered)return;answered=true;const q=questions[idx],buttons=[...$('opts').children],picked=q.shuffled[i],ok=picked.correct;
+ if(ok)correct++;
+ buttons.forEach((b,j)=>{b.disabled=true;if(q.shuffled[j].correct)b.classList.add('correct');if(j===i&&!ok)b.classList.add('wrong')});
+ responses.push({q:q.q,picked:picked.text,ok,answer:q.shuffled.find(o=>o.correct).text,why:q.why});
+ const f=$('feedback');f.className='feedback '+(ok?'good':'bad');f.textContent=(ok?'Benar. ':'Belum tepat. ')+q.why;
+ $('scoreNow').textContent=`Benar: ${correct}`;$('bar').style.width=`${(idx+1)/questions.length*100}%`;
+ $('nextBtn').textContent=idx===questions.length-1?'Lihat Hasil':'Soal Berikutnya';$('nextBtn').classList.remove('hidden')
+}
+function finish(){
+ $('quiz').classList.add('hidden');$('result').classList.remove('hidden');
+ const pct=Math.round(correct/questions.length*100);$('greet').textContent='Nama peserta: '+name;$('scoreBig').textContent=pct;
+ $('scoreLine').textContent=`Nilai ${pct}/100 · Jawaban benar ${correct} dari ${questions.length} soal.`;
+ $('remark').textContent=pct>=85?'Sangat baik!':pct>=70?'Baik, terus pertahankan.':pct>=55?'Cukup, pelajari kembali materi.':'Silakan tinjau kembali bahan Pertemuan 1 dan coba lagi.';
+ $('reviews').classList.add('hidden');$('reviewBtn').textContent='Lihat Pembahasan'
+}
+$('startBtn').onclick=startQuiz;
+$('nextBtn').onclick=()=>{if(idx<questions.length-1){idx++;renderQuestion()}else finish()};
+$('retryBtn').onclick=()=>{$('result').classList.add('hidden');$('start').classList.remove('hidden');$('student').value=name};
+$('reviewBtn').onclick=()=>{
+ const r=$('reviews');if(!r.classList.contains('hidden')){r.classList.add('hidden');$('reviewBtn').textContent='Lihat Pembahasan';return}
+ r.innerHTML='';responses.forEach((x,i)=>{const d=document.createElement('div');d.className='review';const h=document.createElement('strong');h.textContent=`${i+1}. ${x.q}`;const p=document.createElement('p');p.textContent=`Jawaban Anda: ${x.picked} — ${x.ok?'Benar':'Belum tepat'}`;const a=document.createElement('p');a.textContent='Jawaban benar: '+x.answer;const w=document.createElement('p');w.textContent='Pembahasan: '+x.why;d.append(h,p,a,w);r.appendChild(d)});r.classList.remove('hidden');$('reviewBtn').textContent='Sembunyikan Pembahasan'
+};
+</script>
+</body>
+</html>
