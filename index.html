@@ -23,6 +23,156 @@ button{cursor:pointer;border:0;border-radius:9px;padding:13px 18px;font:700 1rem
 <body>
 <main>
 <header>
+ 
+/* TEMA AKADEMIK KELAS M — HIJAU ZAMRUD, PUTIH, NAVY */
+:root {
+  color-scheme: light;
+  --bg: #edf4f0;
+  --panel: #ffffff;
+  --card: #f5faf7;
+  --line: #cbded3;
+  --accent: #086b4b;
+  --blue: #123b32;
+  --text: #172b25;
+  --muted: #53685f;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  background: var(--panel);
+  border-color: var(--line);
+  border-top-color: var(--accent);
+  box-shadow: 0 12px 35px rgba(18, 59, 50, 0.10);
+}
+
+h1 {
+  color: var(--accent);
+}
+
+header p {
+  color: var(--muted);
+}
+
+input {
+  background: #ffffff;
+  color: var(--text);
+  border-color: var(--line);
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline-color: #16845f;
+}
+
+.primary {
+  background: #086b4b;
+  color: #ffffff;
+}
+
+.primary:hover {
+  background: #07563e;
+}
+
+.secondary {
+  background: #e4eee8;
+  color: #123b32;
+  border: 1px solid #cbded3;
+}
+
+.stats {
+  color: #086b4b;
+}
+
+.progress {
+  background: #dce9e1;
+}
+
+.progress span {
+  background: #086b4b;
+}
+
+/* Pilihan jawaban sebelum diklik */
+.option {
+  background: #f5faf7;
+  color: #172b25 !important;
+  border: 2px solid #cbded3;
+}
+
+/* Efek saat diarahkan dengan mouse */
+.option:hover:not(:disabled) {
+  background: #e6f4ec;
+  border-color: #16845f;
+  color: #123b32 !important;
+}
+
+/* Jawaban benar: teks putih tetap terbaca */
+.option.correct,
+.option.correct:disabled {
+  background: #086b4b !important;
+  border-color: #16845f !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Jawaban salah: teks putih tetap terbaca */
+.option.wrong,
+.option.wrong:disabled {
+  background: #a52232 !important;
+  border-color: #d94b5a !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Pembahasan jawaban */
+.feedback {
+  background: #edf4f0;
+  color: #172b25;
+}
+
+.feedback.good {
+  background: #e0f3e7;
+  border-left-color: #16845f;
+}
+
+.feedback.bad {
+  background: #fbe8ea;
+  border-left-color: #c6283d;
+}
+
+.result h2 {
+  color: #123b32;
+}
+
+.score {
+  color: #086b4b;
+}
+
+.review {
+  background: #f5faf7;
+  border-color: #cbded3;
+  color: #172b25;
+}
+
+/* Label identitas pada bagian atas */
+header p:first-child {
+  background: #123b32 !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 520px) {
+  body {
+    padding: 10px;
+  }
+
+  main {
+    padding: 20px 15px;
+  }
+}
+
 <p style="display:inline-block;background:#eff6ff;color:#1d4ed8;padding:6px 12px;border-radius:999px;font-weight:700;letter-spacing:.04em">KELAS M · EVALUASI PEMBELAJARAN</p>
 <h1>Kuis Sejarah Pemikiran dan Peradaban Islam - Pertemuan 1</h1>
 <p><strong>Pascasarjana PJJ PAI · UIN SSC Cirebon</strong></p>
