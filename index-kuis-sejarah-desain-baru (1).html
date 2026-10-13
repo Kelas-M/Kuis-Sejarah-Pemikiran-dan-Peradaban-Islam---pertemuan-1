@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#176b52">
+<meta name="description" content="Kuis Sejarah Pemikiran dan Peradaban Islam - Pertemuan 1">
+<title>Kuis Sejarah Pemikiran dan Peradaban Islam — Pertemuan 1</title>
+<style>
+:root{
+  --navy:#17324d; --green:#176b52; --green-dark:#10533f;
+  --mint:#e8f5ee; --paper:#ffffff; --bg:#f1f7f3; --ink:#20312b;
+  --muted:#61736a; --line:#d6e5dc; --red:#b42332; --red-pale:#fff0f1;
+  --green-pale:#e4f7eb; --gold:#f3c969;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+.page{max-width:900px;margin:28px auto;padding:0 16px}
+.hero{background:var(--navy);color:#fff;border-radius:22px;padding:26px 28px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-35px;top:-70px;width:220px;height:220px;border:28px solid rgba(255,255,255,.08);border-radius:50%;pointer-events:none}
+.kicker{display:inline-block;background:var(--gold);color:#17324d;font-weight:800;font-size:.78rem;letter-spacing:.08em;padding:5px 10px;border-radius:999px}
+h1{font-size:clamp(1.55rem,4vw,2.25rem);line-height:1.2;margin:14px 0 9px;color:#fff}
+.hero p{margin:4px 0;color:#e7f2ed}
+.hero .identity{font-weight:700;color:#fff}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:18px;box-shadow:0 8px 28px rgba(23,50,77,.06)}
+.row{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.pill{border-radius:999px;background:var(--mint);color:var(--green-dark);padding:7px 12px;font-weight:800;font-size:.9rem}
+.progress{height:9px;border-radius:99px;background:#e3ece6;overflow:hidden;margin:16px 0 20px}
+.progress span{display:block;height:100%;width:0;background:var(--green);transition:width .2s}
+.question{font-size:1.16rem;font-weight:800;color:var(--navy);margin:8px 0 17px}
+.options{display:grid;gap:10px}
+.option{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--line);background:#fff;color:var(--ink);padding:13px 15px;border-radius:13px;font:inherit;cursor:pointer;transition:background .12s,border-color .12s}
+.option:hover:not(:disabled){background:#f0f8f3;border-color:#72aa90}
+.option:focus-visible,.btn:focus-visible{outline:3px solid #f3c969;outline-offset:3px}
+.option .letter{flex:0 0 29px;height:29px;border-radius:9px;background:#edf3ef;color:var(--navy);font-weight:800;display:grid;place-items:center}
+.option .label{flex:1}
+.option.correct,.option.correct:disabled{background:#176b52!important;border-color:#176b52!important;color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important}
+.option.correct .letter,.option.wrong .letter{background:rgba(255,255,255,.2)!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+.option.wrong,.option.wrong:disabled{background:#b42332!important;border-color:#b42332!important;color:#fff!important;-webkit-text-fill-color:#fff!important;opacity:1!important}
+.option:disabled{cursor:default}
+.feedback{margin-top:15px;padding:13px 15px;border-radius:12px;border-left:5px solid var(--line);background:#f6f8f7;color:var(--ink)}
+.feedback.good{background:var(--green-pale);border-left-color:var(--green)}
+.feedback.bad{background:var(--red-pale);border-left-color:var(--red)}
+.feedback strong{display:block;margin-bottom:3px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn{border:0;border-radius:12px;padding:12px 17px;font:inherit;font-weight:800;cursor:pointer}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-dark)}
+.btn-secondary{background:#edf3ef;color:var(--navy);border:1px solid var(--line)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.small{color:var(--muted);font-size:.9rem}
+.result-score{font-size:3rem;line-height:1.1;font-weight:900;color:var(--green);margin:10px 0}
+.result h2{color:var(--navy);margin-top:0}
+.review-item{border:1px solid var(--line);border-radius:13px;padding:14px;margin-top:12px;background:#fff}
+.review-item h3{font-size:1rem;color:var(--navy);margin:0 0 8px}
+.review-item p{margin:5px 0}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:22px 8px}
+[hidden]{display:none!important}
+@media(max-width:560px){.page{margin:14px auto;padding:0 10px}.hero{padding:22px 18px}.panel{padding:17px}.option{padding:11px}.question{font-size:1.08rem}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="hero">
+  <span class="kicker">KELAS M • KUIS AKADEMIK</span>
+  <h1>Kuis Sejarah Pemikiran dan Peradaban Islam</h1>
+  <p class="identity">Pascasarjana PJJ PAI · UIN SSC Cirebon</p>
+  <p>Pertemuan 1 — Ruang Lingkup dan Pendekatan</p>
+  <p>20 soal pilihan ganda · Umpan balik langsung · Nilai otomatis</p>
+</header>
+
+<section class="panel" id="quizPanel">
+  <div class="row">
+    <span class="pill" id="counter">Soal 1 dari 20</span>
+    <span class="pill" id="scoreNow">Benar: 0</span>
+  </div>
+  <div class="progress" aria-label="Progres kuis"><span id="progressBar"></span></div>
+  <div id="question" class="question"></div>
+  <div id="options" class="options"></div>
+  <div id="feedback" class="feedback" hidden aria-live="polite"></div>
+  <div class="actions">
+    <button class="btn btn-primary" id="nextBtn" disabled>Soal berikutnya →</button>
+    <button class="btn btn-secondary" id="quitBtn" type="button">Akhiri kuis</button>
+  </div>
+  <p class="small">Pilih satu jawaban. Setelah memilih, jawaban tidak dapat diubah. Urutan soal dan pilihan diacak setiap kali kuis dimulai.</p>
+</section>
+
+<section class="panel" id="resultPanel" hidden>
+  <h2>Hasil Kuis</h2>
+  <p class="small">Kuis telah selesai. Berikut hasil akhir Anda.</p>
+  <div class="result-score" id="finalScore">0/20</div>
+  <p id="resultMessage"></p>
+  <div class="row">
+    <span class="pill" id="correctCount">Benar: 0</span>
+    <span class="pill" id="wrongCount">Salah: 0</span>
+    <span class="pill" id="percentCount">Nilai: 0%</span>
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" id="restartBtn">Ulangi dengan urutan baru</button>
+    <button class="btn btn-secondary" id="reviewBtn">Lihat pembahasan</button>
+  </div>
+  <div id="review" hidden></div>
+</section>
+<footer>Kelas M · Pascasarjana PJJ PAI · UIN SSC Cirebon 2026</footer>
+</div>
+
+<script>
+const questionBank = [
+{q:"Apa fokus utama kajian sejarah pemikiran Islam?",a:["Menelusuri perkembangan gagasan, penafsiran, dan perdebatan umat Islam dalam konteks sejarah","Menghafal seluruh nama penguasa tanpa melihat gagasannya","Membatasi kajian hanya pada perang dan pergantian dinasti","Menilai masa lalu hanya dengan ukuran masa kini"],c:0,e:"Sejarah pemikiran Islam mengkaji perkembangan gagasan, penafsiran, tokoh, dan perdebatan dalam konteks zamannya."},
+{q:"Mengapa konteks sosial-politik penting saat mengkaji pemikiran seorang tokoh?",a:["Agar semua gagasannya dianggap benar","Karena konteks dapat membantu menjelaskan persoalan dan kondisi yang melatarbelakangi gagasannya","Supaya karya tertulis tidak perlu dibaca","Karena gagasan selalu ditentukan sepenuhnya oleh penguasa"],c:1,e:"Konteks membantu peneliti memahami masalah yang dihadapi tokoh, tanpa menganggap konteks sebagai satu-satunya penentu."},
+{q:"Apa yang dimaksud dengan pendekatan historis dalam studi pemikiran Islam?",a:["Mengukur gagasan lama hanya dengan popularitas sekarang","Menyusun daftar tokoh tanpa kronologi","Menempatkan gagasan dalam urutan waktu dan kondisi sejarah kemunculannya","Menghindari pembahasan perubahan sosial"],c:2,e:"Pendekatan historis menelusuri waktu, proses, dan kondisi yang menyertai kemunculan serta perubahan gagasan."},
+{q:"Ketika dua sumber memberikan keterangan berbeda tentang satu peristiwa, langkah yang paling tepat adalah ...",a:["Memilih sumber yang paling panjang","Menggabungkan keduanya tanpa pemeriksaan","Membuang semua sumber tertulis","Menguji asal-usul, kedekatan waktu, tujuan, dan konsistensi masing-masing sumber"],c:3,e:"Perbedaan sumber perlu diperiksa secara kritis melalui asal-usul, konteks, tujuan, dan perbandingan dengan bukti lain."},
+{q:"Apa fungsi kritik sumber dalam penelitian sejarah?",a:["Menilai autentisitas, kredibilitas, dan keterbatasan sumber","Menghapus semua sumber yang tidak sependapat dengan peneliti","Mengganti bukti dengan dugaan","Memastikan sumber lama selalu lebih benar daripada sumber baru"],c:0,e:"Kritik sumber membantu menentukan sejauh mana sumber dapat dipercaya dan apa keterbatasannya."},
+{q:"Mengapa periodisasi digunakan dalam penulisan sejarah peradaban Islam?",a:["Untuk membuktikan setiap zaman terpisah mutlak","Untuk membantu mengorganisasi perubahan berdasarkan ciri dan rentang waktu tertentu","Untuk menghilangkan hubungan antarmasa","Untuk menyamakan pengalaman semua wilayah Islam"],c:1,e:"Periodisasi adalah alat analisis untuk mengelola rentang sejarah; batas periodenya dapat berbeda sesuai fokus penelitian."},
+{q:"Apa kelemahan jika sejarah peradaban Islam hanya ditulis sebagai sejarah para penguasa?",a:["Kronologi menjadi terlalu rinci","Sumber politik tidak lagi berguna","Pengalaman masyarakat, lembaga, ilmu, ekonomi, dan budaya berisiko terabaikan","Semua perubahan intelektual otomatis terjelaskan"],c:2,e:"Sejarah yang hanya berpusat pada penguasa dapat mengabaikan peran masyarakat dan berbagai institusi."},
+{q:"Dalam kajian sejarah, apa yang dimaksud dengan anakronisme?",a:["Penggunaan banyak jenis sumber","Perbandingan dua wilayah sezaman","Penyusunan peristiwa berdasarkan tanggal","Menempatkan konsep atau nilai masa kini seolah-olah berlaku sama pada masa lalu"],c:3,e:"Anakronisme terjadi ketika unsur dari masa berbeda ditempatkan seolah-olah berasal dari konteks waktu yang sama."},
+{q:"Apa manfaat membandingkan perkembangan pemikiran Islam di beberapa wilayah?",a:["Menemukan persamaan dan perbedaan dengan memperhatikan konteks lokal masing-masing","Membuktikan semua wilayah memiliki pengalaman identik","Mengabaikan jaringan pertukaran gagasan","Menentukan satu wilayah sebagai ukuran mutlak semua wilayah"],c:0,e:"Perbandingan membantu mengenali pola bersama sekaligus keragaman akibat kondisi lokal dan hubungan antardaerah."},
+{q:"Apa yang sebaiknya dilakukan peneliti ketika istilah dalam sumber lama berbeda makna dari pemakaian modern?",a:["Langsung memakai makna modern","Menelaah penggunaan istilah dalam konteks bahasa dan zamannya","Menghapus istilah tersebut dari analisis","Menganggap perubahan makna tidak penting"],c:1,e:"Makna istilah perlu ditafsirkan sesuai konteks historis agar tidak terjadi salah pengertian."},
+{q:"Apa perbedaan utama antara sumber primer dan sumber sekunder?",a:["Sumber primer selalu benar, sedangkan sumber sekunder selalu salah","Sumber primer hanya berbentuk benda, sedangkan sekunder hanya buku","Sumber primer berasal dari keterlibatan atau kedekatan langsung dengan objek/peristiwa, sedangkan sumber sekunder mengolah atau menafsirkan sumber lain","Sumber primer selalu lebih baru daripada sumber sekunder"],c:2,e:"Pembedaan ini terkait hubungan sumber dengan objek yang diteliti; keduanya tetap harus dievaluasi secara kritis."},
+{q:"Jika sebuah karya ditulis untuk membela kepentingan politik tertentu, bagaimana peneliti sebaiknya menggunakannya?",a:["Menolaknya otomatis tanpa membaca","Mengutip hanya bagian yang disukai","Menganggapnya sebagai catatan netral","Memperhatikan tujuan penulisan dan membandingkannya dengan sumber lain"],c:3,e:"Tujuan politik dapat memengaruhi isi sumber, tetapi sumber tersebut tetap dapat memberi informasi jika dibaca secara kritis."},
+{q:"Apa arti kesinambungan dan perubahan dalam analisis sejarah?",a:["Menelaah unsur yang bertahan serta unsur yang berubah dari waktu ke waktu","Menganggap semua hal berubah total setiap generasi","Menganggap tradisi tidak pernah berubah","Membatasi kajian pada peristiwa yang terputus"],c:0,e:"Analisis sejarah memperhatikan aspek yang bertahan maupun berubah, termasuk proses dan faktor yang memengaruhinya."},
+{q:"Mengapa sejarah pemikiran Islam perlu memperhatikan jaringan keilmuan?",a:["Karena setiap gagasan muncul tanpa hubungan dengan gagasan lain","Karena perjalanan ulama, pendidikan, perdagangan, dan penerjemahan dapat memfasilitasi pertukaran gagasan","Karena jaringan selalu menghapus perbedaan lokal","Karena jaringan hanya berkaitan dengan urusan militer"],c:1,e:"Jaringan perjalanan, pendidikan, perdagangan, dan penerjemahan membantu menjelaskan sirkulasi pengetahuan."},
+{q:"Apa yang dimaksud dengan pendekatan interdisipliner?",a:["Menggunakan satu disiplin saja untuk semua pertanyaan","Menghindari teori dan konsep","Menggabungkan wawasan dari beberapa disiplin secara terarah untuk memahami masalah","Menggantikan bukti sejarah dengan pendapat pribadi"],c:2,e:"Pendekatan interdisipliner menggabungkan perangkat analisis beberapa bidang yang relevan dengan pertanyaan penelitian."},
+{q:"Apa risiko menggunakan satu sumber saja untuk menyimpulkan pandangan seluruh masyarakat pada suatu masa?",a:["Kesimpulan pasti menjadi terlalu luas","Kronologi otomatis menjadi akurat","Tidak ada risiko selama sumbernya tua","Sumber tunggal mungkin tidak mewakili keragaman pengalaman dan pandangan masyarakat"],c:3,e:"Satu sumber memiliki sudut pandang dan keterbatasan; generalisasi membutuhkan bukti yang memadai dan beragam."},
+{q:"Bagaimana sebaiknya hubungan antara fakta sejarah dan interpretasi dipahami?",a:["Interpretasi dibangun dari bukti, tetapi tetap merupakan penjelasan yang harus diuji dan diperdebatkan","Interpretasi bebas dari kewajiban memakai bukti","Fakta tidak diperlukan jika penulis terkenal","Setiap interpretasi pasti memiliki kebenaran yang sama"],c:0,e:"Interpretasi menghubungkan dan menjelaskan bukti, sehingga argumennya harus transparan dan terbuka untuk pengujian."},
+{q:"Apa tujuan menyusun pertanyaan penelitian yang jelas sebelum mengumpulkan sumber?",a:["Agar peneliti hanya menemukan bukti yang mendukung pendapat awal","Agar pencarian sumber dan batas kajian menjadi lebih terarah","Agar hasil penelitian sudah ditentukan sejak awal","Agar sumber yang bertentangan tidak perlu dibaca"],c:1,e:"Pertanyaan yang jelas membantu menentukan cakupan dan jenis bukti, tetapi peneliti tetap harus terbuka pada temuan yang berbeda."},
+{q:"Dalam kajian peradaban, mengapa lembaga pendidikan dan perpustakaan penting diteliti?",a:["Karena bangunan selalu lebih penting daripada manusia","Karena keduanya membuktikan seluruh masyarakat memiliki akses yang sama","Karena keduanya dapat berperan dalam produksi, penyimpanan, dan penyebaran pengetahuan","Karena keduanya tidak berhubungan dengan perubahan sosial"],c:2,e:"Lembaga pendidikan dan perpustakaan dapat mendukung pembelajaran serta transmisi pengetahuan, meskipun aksesnya bisa berbeda."},
+{q:"Apa sikap akademik yang paling tepat ketika bukti baru bertentangan dengan kesimpulan awal?",a:["Menyembunyikan bukti baru","Mengubah data agar cocok dengan kesimpulan","Mengabaikan kritik dari peneliti lain","Menilai bukti baru secara terbuka dan merevisi kesimpulan jika memang diperlukan"],c:3,e:"Sikap ilmiah menuntut evaluasi bukti dan kesediaan merevisi argumen ketika dasar kesimpulannya berubah."}
+];
+
+const $ = id => document.getElementById(id);
+let questions=[], index=0, score=0, answers=[];
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function startQuiz(){
+  questions=shuffle(questionBank).map(item=>{
+    const opts=shuffle(item.a.map((label,i)=>({label,correct:i===item.c})));
+    return {...item,opts};
+  });
+  index=0;score=0;answers=[];
+  $("quizPanel").hidden=false;$("resultPanel").hidden=true;$("review").hidden=true;
+  renderQuestion();
+}
+function renderQuestion(){
+  const item=questions[index];
+  $("counter").textContent=`Soal ${index+1} dari ${questions.length}`;
+  $("scoreNow").textContent=`Benar: ${score}`;
+  $("progressBar").style.width=`${(index/questions.length)*100}%`;
+  $("question").textContent=item.q;
+  $("options").innerHTML="";
+  $("feedback").hidden=true;$("feedback").className="feedback";$("feedback").textContent="";
+  $("nextBtn").disabled=true;
+  item.opts.forEach((opt,i)=>{
+    const b=document.createElement("button");b.type="button";b.className="option";
+    const letter=document.createElement("span");letter.className="letter";letter.textContent=String.fromCharCode(65+i);
+    const label=document.createElement("span");label.className="label";label.textContent=opt.label;
+    b.append(letter,label);b.addEventListener("click",()=>chooseAnswer(i));$("options").append(b);
+  });
+  $("nextBtn").textContent=index===questions.length-1?"Lihat hasil akhir →":"Soal berikutnya →";
+}
+function chooseAnswer(choice){
+  const item=questions[index], selected=item.opts[choice];
+  const buttons=[...$("options").querySelectorAll("button")];
+  buttons.forEach((b,i)=>{
+    b.disabled=true;
+    if(item.opts[i].correct)b.classList.add("correct");
+    else if(i===choice)b.classList.add("wrong");
+  });
+  const ok=selected.correct;if(ok)score++;
+  answers[index]={selected:choice,correct:ok};
+  $("scoreNow").textContent=`Benar: ${score}`;
+  $("progressBar").style.width=`${((index+1)/questions.length)*100}%`;
+  const fb=$("feedback");fb.hidden=false;fb.className="feedback "+(ok?"good":"bad");
+  const strong=document.createElement("strong");strong.textContent=ok?"Jawaban Anda benar":"Jawaban belum tepat";
+  const p=document.createElement("div");p.textContent=item.e;fb.append(strong,p);
+  $("nextBtn").disabled=false;
+}
+function finishQuiz(){
+  $("quizPanel").hidden=true;$("resultPanel").hidden=false;
+  const total=questions.length,wrong=total-score,pct=Math.round(score/total*100);
+  $("finalScore").textContent=`${score} / ${total}`;
+  $("correctCount").textContent=`Benar: ${score}`;
+  $("wrongCount").textContent=`Salah: ${wrong}`;
+  $("percentCount").textContent=`Nilai: ${pct}%`;
+  $("resultMessage").textContent=pct>=85?"Sangat baik! Pemahaman Anda terhadap materi dasar sudah kuat.":pct>=70?"Baik. Tinjau kembali beberapa konsep untuk memperkuat pemahaman.":"Terus berlatih. Baca pembahasan dan ulangi kuis untuk memperkuat pemahaman.";
+  $("progressBar").style.width="100%";
+  renderReview();
+}
+function renderReview(){
+  const box=$("review");box.innerHTML="";
+  questions.forEach((item,i)=>{
+    const div=document.createElement("article");div.className="review-item";
+    const h=document.createElement("h3");h.textContent=`${i+1}. ${item.q}`;
+    const chosen=answers[i]?.selected;
+    const p1=document.createElement("p");p1.textContent=`Jawaban Anda: ${chosen===undefined?"Tidak dijawab":item.opts[chosen].label}`;
+    const p2=document.createElement("p");p2.textContent=`Jawaban yang benar: ${item.opts.find(o=>o.correct).label}`;
+    const p3=document.createElement("p");p3.textContent=`Pembahasan: ${item.e}`;
+    div.append(h,p1,p2,p3);box.append(div);
+  });
+}
+$("nextBtn").addEventListener("click",()=>{if(index<questions.length-1){index++;renderQuestion();}else finishQuiz();});
+$("quitBtn").addEventListener("click",()=>{if(confirm("Akhiri kuis dan lihat hasil sementara?"))finishQuiz();});
+$("restartBtn").addEventListener("click",startQuiz);
+$("reviewBtn").addEventListener("click",()=>{$("review").hidden=!$("review").hidden;$("reviewBtn").textContent=$("review").hidden?"Lihat pembahasan":"Sembunyikan pembahasan";});
+startQuiz();
+</script>
+</body>
+</html>
